@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Blog List</h1>
+
+    <!-- PostLV에서 넘겨주는 context_object_name 받아줌 -->
+    {% for post in posts %} 
+
+    <!-- model에서 만든 get_absoulte_url이 URL을 넘겨주는데, 이는 PostLV에 포함되어있다 -->
+    <!-- model에 정의된 내용 중 title을 뱉어줌 (어차피 view에서 넘어왔다) -->
+    <h2><a href="{{ post.get_absolute_url }}"></a>{{ post.title }}</h2>
+    <p> {{ post.description }}</p>
+
+    {% endfor %}
+
+    <br/>
+
+</body>
+</html>
